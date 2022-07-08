@@ -15,7 +15,7 @@ repositories {
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.apache.tomcat:tomcat-jasper:9.0.19'
-
+	implementation 'javax.servlet:jstl:1.2'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 

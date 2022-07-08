@@ -1,6 +1,7 @@
 package ru.dadynsky.warship.web;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -9,7 +10,7 @@ import ru.dadynsky.warship.model.Ship;
 @Controller
 public class IndexController {
     @RequestMapping(value = {"/","/index.html"})
-    public String index(){
+    public String index(Model model){
         int[][] pole = new int[10][10];
 
         for(int i = 4; i > 0;i--){
@@ -25,7 +26,7 @@ public class IndexController {
                 System.out.print(pole[x][y] + " ");
             }
         }
-
+        model.addAttribute("pole",pole);
         return "index";
     }
     public void clearWater(int[][]pole){

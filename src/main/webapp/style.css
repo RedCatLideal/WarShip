@@ -1,0 +1,12 @@
+.pole{
+    width: 50px;
+    height: 50px;
+}
+
+.pole0 {
+    background-image: url("img.png");
+}
+
+.pole1 {
+    background-color: black ;
+}
