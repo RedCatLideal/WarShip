@@ -12,6 +12,7 @@ import javax.servlet.http.HttpSession;
 @Controller
 public class IndexController {
     @RequestMapping(value = {"/","/index.html"})
+    //Ставит поле
     public String index(Model model, HttpSession session){
         int[][] pole = new int[10][10];
         if (session.getAttribute("pole") == null){
@@ -27,16 +28,21 @@ public class IndexController {
     }
     @RequestMapping(value = {"/fire",})
     @ResponseBody
+    //Отвечает за стрельбу игроком
     public String fire(Integer x, Integer y,HttpSession session){
         int[][] pole = (int[][])session.getAttribute("pole");
-        if(pole[y][x] != 0){
+
+        if (pole[y][x] < 0) return "double";
+
+        if(pole[y][x] > 0){
             pole[y][x] = -1;
             return "Ok";
         }
-        else{
-            return "no Ok";
-        }
+
+        pole[y][x] = -2;
+        return "fail";
     }
+    //Очищает поле от лишних "пятёрок"
     public void clearWater(int[][]pole){
         for(int y=0;y<10;y++){
             for(int x=0;x<10;x++){
@@ -46,6 +52,7 @@ public class IndexController {
             }
         }
     }
+    //Растовляет корабли
     public void placeShip(int[][] pole){
         for(int i = 4; i > 0;i--){
             for(int j = i; j <= 4;j++){

@@ -8,18 +8,22 @@
 }
 
 .pole1 {
-    background-color: black ;
+    background-image: url("img.png");
 }
 .pole2 {
-    background-color: black ;
+    background-image: url("img.png");
 }
 .pole3 {
-    background-color: black ;
+    background-image: url("img.png");
 }
 .pole4 {
-    background-color: black ;
+    background-image: url("img.png");
 }
 
 .pole-1 {
     background-image: url("fire.jpg");
+}
+.pole-2 {
+    background-image: url("mimo.png");
+    background-size: contain;
 }
